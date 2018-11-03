@@ -141,7 +141,7 @@ const title = {
   marginTop: "30px",
   marginBottom: "25px",
   minHeight: "32px",
-  fontFamily: "'Inconsolata', 'Helvetica', 'Arial', sans-serif",
+  fontFamily: "'Roboto Slab', 'Helvetica', 'Arial', sans-serif",
   "& small": {
     color: "#777",
     fontWeight: "400",

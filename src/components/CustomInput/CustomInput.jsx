@@ -6,6 +6,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Input from "@material-ui/core/Input";
+import Button from "@material-ui/core/Button";
 // @material-ui/icons
 import Clear from "@material-ui/icons/Clear";
 import Check from "@material-ui/icons/Check";
@@ -13,6 +14,7 @@ import Check from "@material-ui/icons/Check";
 import customInputStyle from "assets/jss/material-dashboard-react/components/customInputStyle.jsx";
 
 function CustomInput({ ...props }) {
+
   const {
     classes,
     formControlProps,
@@ -51,6 +53,7 @@ function CustomInput({ ...props }) {
         </InputLabel>
       ) : null}
       <Input
+        onChange={(event) => props.onChange(event)}
         classes={{
           root: marginTop,
           disabled: classes.disabled,
@@ -60,9 +63,9 @@ function CustomInput({ ...props }) {
         {...inputProps}
       />
       {error ? (
-        <Clear className={classes.feedback + " " + classes.labelRootError} />
+        <Clear className={classes.feedback + " " + classes.labelRootError}/>
       ) : success ? (
-        <Check className={classes.feedback + " " + classes.labelRootSuccess} />
+        <Check className={classes.feedback + " " + classes.labelRootSuccess}/>
       ) : null}
     </FormControl>
   );

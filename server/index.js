@@ -4,7 +4,8 @@ const cookieSession = require("cookie-session");
 const passport = require("passport");
 const bodyParser = require("body-parser");
 const keys = require("./config/keys");
-require("./models/User");
+const morgan = require("morgan");
+require("./models/UserModel");
 require("./models/MachineUnitModel");
 require("./services/passport");
 
@@ -17,6 +18,7 @@ const app = express();
 
 // lib to parse the POST req body
 app.use(bodyParser.json());
+app.use(morgan("combined"));
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
@@ -44,4 +46,5 @@ if (process.env.NODE_ENV === "production") {
 
 // enviroment of deploy server || dev server
 const PORT = process.env.PORT || 5000;
+console.log("server runs on:  ", PORT);
 app.listen(PORT);

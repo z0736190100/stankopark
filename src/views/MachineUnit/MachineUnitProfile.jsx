@@ -36,14 +36,28 @@ const styles = {
 
 function MachineUnitProfile(props) {
   const { classes } = props;
+
+
+  // KUNG-FUSION: i18n of form field labels - how to?
+  // should i make a model class for form?
+
+
   return (
     <div>
       <GridContainer>
         <GridItem xs={12} sm={12} md={8}>
           <Card>
             <CardHeader color={"primary"}>
-              <h4 className={classes.cardTitleWhite}>{"Паспорт оборудования"}</h4>
-              <p className={classes.cardCategoryWhite}>
+              <h4
+                className={classes.cardTitleWhite}
+                style={{ "font-family": "Roboto Slab" }}
+              >
+                {"Паспорт оборудования"}
+              </h4>
+              <p
+                className={classes.cardCategoryWhite}
+                style={{ "font-family": "Roboto" }}
+              >
                 {"Внесите информацию, чтобы отредактировать"}
               </p>
             </CardHeader>
@@ -158,9 +172,7 @@ function MachineUnitProfile(props) {
             <CardBody profile>
               <h6 className={classes.cardCategory}>{"ЖУРНАЛ"}</h6>
               <h4 className={classes.cardTitle}>
-                {
-                  "(перечень проведенных мероприятий)"
-                }
+                {"(перечень проведенных мероприятий)"}
               </h4>
               <p className={classes.description}>
                 {

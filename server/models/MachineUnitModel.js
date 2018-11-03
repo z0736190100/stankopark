@@ -3,7 +3,8 @@ const { Schema } = mongoose;
 
 // _user - relationship field,
 // so underscore is name convention to reveal this fact
-const machineUnitSchema = new Schema({
+const machineUnitSchema = new Schema(
+  {
   inventoryNumber: Number,
   usage: String,
   producerBrand: String,
