@@ -14,6 +14,8 @@ import Check from "@material-ui/icons/Check";
 import customInputStyle from "assets/jss/material-dashboard-react/components/customInputStyle.jsx";
 import InputAdornment from "@material-ui/core/es/InputAdornment/InputAdornment";
 
+
+//TODO: define default on change handler mock with placeholder text : "no onChangeHandler is defined" 
 function CustomInput({ ...props }) {
 
   const {
