@@ -2,7 +2,7 @@ import { TEST_REDUCER } from "./types";
 
 export const testReducerAction = () => dispatch => {
 
-  const payload = "action test reducer";
+  const payload = "test reducer action payload";
   console.log(payload);
 
   dispatch({

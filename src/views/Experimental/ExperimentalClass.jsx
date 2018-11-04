@@ -5,12 +5,29 @@ import * as actions from "../../store/actions";
 
 class ExperimentalClass extends Component {
 
+  state = {
+    iii: "one"
+  };
+
+  selectOC = event => {
+    this.setState({
+      iii: event.target.value
+    });
+  };
+
   render() {
-    return <Experimental act={() => this.props.testReducerAction} test={this.props.test} />;
+    return (
+      <Experimental
+        act={() => this.props.testReducerAction}
+        test={this.props.test}
+        selectOC={this.selectOC}
+        iii={this.state.iii}
+      />
+    );
   }
 }
 
-function mapStateToProps({test}){
+function mapStateToProps({ test }) {
   return { test };
 }
 

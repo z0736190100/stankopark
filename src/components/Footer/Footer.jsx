@@ -39,7 +39,7 @@ function Footer({ ...props }) {
         <p className={classes.right}>
           <span>
             &copy; {1900 + new Date().getYear()}{" "}
-            <a href="#" className={classes.a}>
+            <a href="#goodhabit" className={classes.a}>
               Good Habit
             </a>, here another one is us.
           </span>

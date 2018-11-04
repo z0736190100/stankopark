@@ -17,6 +17,9 @@ import CardFooter from "components/Card/CardFooter.jsx";
 import avatar from "assets/img/faces/gh_logo.png";
 import formFields from "./machineUnitFormFields";
 import InputAdornment from "@material-ui/core/es/InputAdornment/InputAdornment";
+import CustomSelectInput from "components/Experimental/CustomSelectInput.jsx";
+//import CustomSelectInput from "@material-ui/core/es/CustomSelectInput/CustomSelectInput";
+import MenuItem from "@material-ui/core/es/MenuItem/MenuItem";
 
 const styles = {
   cardCategoryWhite: {
@@ -42,10 +45,18 @@ function Experimental(props) {
   const { classes } = props;
 
   // KUNG-FUSION: i18n of form field labels - how to?
-  // should i make a model class for form?
-  // here we define order of form fields appearance
 
   let formState = {};
+  const menuItemValues = [
+    {
+      value: 220,
+      text: 220
+    },
+    {
+      value: 380,
+      text: 380
+    }
+  ];
 
   const changeFormState = fs => {
     formState[fs.id] = fs.value;
@@ -66,11 +77,6 @@ function Experimental(props) {
         </GridItem>
       );
     });
-  };
-
-  const formSubmitHandler = event => {
-    event.preventDefault();
-    console.log(formState);
   };
 
   const saveMachineUnit = unit => {
@@ -107,8 +113,27 @@ function Experimental(props) {
                       rows: 5
                     }}
                     endAdornment={
-                      <InputAdornment position="end">Text</InputAdornment>
+                      <InputAdornment position="end">V</InputAdornment>
                     }
+                  />
+                </GridItem>
+              </GridContainer>
+              <GridContainer>
+                <GridItem xs={12} sm={12} md={4}>
+                  <CustomSelectInput
+                    onChange={event => props.selectOC(event)}
+                    labelText={"Напряжение"}
+                    helperText={"Выберите значение"}
+                    startAdornment={"V"}
+                    menuValues={menuItemValues}
+                    formControlProps={{
+                      fullWidth: true
+                    }}
+                    inputProps={{
+                      name: "voltage",
+                      id: "voltage",
+                      value: props.iii
+                    }}
                   />
                 </GridItem>
               </GridContainer>
@@ -121,10 +146,7 @@ function Experimental(props) {
                 {"Сохранить изменения"}
               </Button>
               <GridContainer>
-
-                <GridItem xs={12} sm={12} md={12}>
-
-                </GridItem>
+                <GridItem xs={12} sm={12} md={12} />
               </GridContainer>
             </CardFooter>
           </Card>
@@ -132,20 +154,20 @@ function Experimental(props) {
         <GridItem xs={12} sm={12} md={4}>
           <Card profile>
             <CardAvatar profile>
-              <a href={"#pablo"} onClick={e => e.preventDefault()}>
-                <img src={avatar} alt={"...."}/>
+              <a href="#rr">
+                <img src={avatar} />
               </a>
             </CardAvatar>
             <CardBody profile>
               <h6 className={classes.cardCategory}>{"ЖУРНАЛ"}</h6>
-              <h4 className={classes.cardTitle}>ooo</h4>
+              <h4 className={classes.cardTitle}>{props.iii}</h4>
               <p className={classes.description}>
                 {
                   "--выборка из общего журнала техобслуживания в табличном виде--"
                 }
               </p>
-              <Button color={"primary"} onClick={props.act()} round>
-                {props.test}
+              <Button color={"primary"} onClick={props.act()}>
+                {props.test || "TEST"}
               </Button>
             </CardBody>
           </Card>

@@ -4,27 +4,34 @@ import PropTypes from "prop-types";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
-import Input from "@material-ui/core/Input";
 // @material-ui/icons
-import Clear from "@material-ui/icons/Clear";
-import Check from "@material-ui/icons/Check";
 // core components
 import customInputStyle from "assets/jss/material-dashboard-react/components/customInputStyle.jsx";
+import InputLabel from "@material-ui/core/es/InputLabel/InputLabel";
+import Input from "@material-ui/core/es/Input/Input";
 import InputAdornment from "@material-ui/core/es/InputAdornment/InputAdornment";
-import TextField from "@material-ui/core/es/TextField/TextField";
+
+import Clear from "@material-ui/icons/Clear";
+import Check from "@material-ui/icons/Check";
+import MenuItem from "@material-ui/core/es/MenuItem/MenuItem";
+import Select from "@material-ui/core/es/Select/Select";
 import FormHelperText from "@material-ui/core/es/FormHelperText/FormHelperText";
 
-function CustomInput({ ...props }) {
+//FIXME:
+function CustomSelectInput({ ...props }) {
   const {
     classes,
     formControlProps,
     labelText,
-    id,
     labelProps,
+    selectProps,
     inputProps,
+    id,
     error,
-    success
+    success,
+    startAdornment,
+    menuValues,
+    helperText
   } = props;
 
   const labelClasses = classNames({
@@ -39,6 +46,23 @@ function CustomInput({ ...props }) {
   const marginTop = classNames({
     [classes.marginTop]: labelText === undefined
   });
+
+  //FIXME:
+  const menuItemRenderHelper = () => {
+    return menuValues ? (
+      menuValues.map(element => (
+        <MenuItem key={element.value} value={element.value}>
+          {element.text}
+        </MenuItem>
+      ))
+    ) : (
+      <MenuItem value="">
+        <em>None</em>
+      </MenuItem>
+    );
+  };
+
+  //FIXME:
   return (
     <FormControl
       {...formControlProps}
@@ -53,18 +77,30 @@ function CustomInput({ ...props }) {
           {labelText}
         </InputLabel>
       ) : null}
-      <Input
+      <Select
+        {...selectProps}
+        id={"select-" + id}
         onChange={event => props.onChange(event)}
-        classes={{
-          root: marginTop,
-          disabled: classes.disabled,
-          underline: underlineClasses
-        }}
-        id={id}
-        {...inputProps}
-        endAdornment={<InputAdornment position="end">Bla</InputAdornment>}
-      />
-      <FormHelperText className={labelClasses}>{"helper"}</FormHelperText>
+        className={classes.textField}
+        margin={"none"}
+        value={inputProps.value}
+        input={
+          <Input
+            classes={{
+              root: marginTop,
+              disabled: classes.disabled,
+              underline: underlineClasses
+            }}
+            {...inputProps}
+            startAdornment={
+              <InputAdornment position="start">{startAdornment}</InputAdornment>
+            }
+          />
+        }
+      >
+        {menuItemRenderHelper()}
+      </Select>
+      <FormHelperText>{helperText}</FormHelperText>
       {error ? (
         <Clear className={classes.feedback + " " + classes.labelRootError} />
       ) : success ? (
@@ -74,7 +110,7 @@ function CustomInput({ ...props }) {
   );
 }
 
-CustomInput.propTypes = {
+CustomSelectInput.propTypes = {
   classes: PropTypes.object.isRequired,
   labelText: PropTypes.node,
   labelProps: PropTypes.object,
@@ -85,4 +121,4 @@ CustomInput.propTypes = {
   success: PropTypes.bool
 };
 
-export default withStyles(customInputStyle)(CustomInput);
+export default withStyles(customInputStyle)(CustomSelectInput);
