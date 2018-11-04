@@ -12,8 +12,8 @@ import MachineUnitProfile from "views/MachineUnit/MachineUnitProfile(new).jsx";
 import MachineUnitsTableList from "views/MachineUnitsTableList/MachineUnitsTableList.jsx";
 import Typography from "views/Typography/Typography.jsx";
 import Icons from "views/Icons/Icons.jsx";
-import Maps from "views/Maps/Maps.jsx";
 import NotificationsPage from "views/Notifications/Notifications.jsx";
+import ExperimentalClass from "../views/Experimental/ExperimentalClass";
 
 const dashboardRoutes = [
   {
@@ -38,6 +38,13 @@ const dashboardRoutes = [
     component: MachineUnitsTableList
   },
   {
+    path: "/exp",
+    sidebarName: "experimental",
+    navbarName: "experimental",
+    icon: "voice_over_off",
+    component: ExperimentalClass
+  },
+  {
     path: "/typography",
     sidebarName: "Typography",
     navbarName: "Typography",
@@ -50,13 +57,6 @@ const dashboardRoutes = [
     navbarName: "Icons",
     icon: BubbleChart,
     component: Icons
-  },
-  {
-    path: "/maps",
-    sidebarName: "Maps",
-    navbarName: "Map",
-    icon: LocationOn,
-    component: Maps
   },
   {
     path: "/notifications",

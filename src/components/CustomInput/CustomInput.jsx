@@ -12,6 +12,7 @@ import Clear from "@material-ui/icons/Clear";
 import Check from "@material-ui/icons/Check";
 // core components
 import customInputStyle from "assets/jss/material-dashboard-react/components/customInputStyle.jsx";
+import InputAdornment from "@material-ui/core/es/InputAdornment/InputAdornment";
 
 function CustomInput({ ...props }) {
 
@@ -61,6 +62,9 @@ function CustomInput({ ...props }) {
         }}
         id={id}
         {...inputProps}
+        endAdornment={
+          <InputAdornment position="end">Bla</InputAdornment>
+        }
       />
       {error ? (
         <Clear className={classes.feedback + " " + classes.labelRootError}/>
