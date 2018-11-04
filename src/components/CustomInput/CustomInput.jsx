@@ -15,6 +15,8 @@ import InputAdornment from "@material-ui/core/es/InputAdornment/InputAdornment";
 import TextField from "@material-ui/core/es/TextField/TextField";
 import FormHelperText from "@material-ui/core/es/FormHelperText/FormHelperText";
 
+
+//TODO: define default on change handler mock with placeholder text : "no onChangeHandler is defined" 
 function CustomInput({ ...props }) {
   const {
     classes,
