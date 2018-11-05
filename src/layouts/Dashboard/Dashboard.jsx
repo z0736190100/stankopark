@@ -2,6 +2,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Switch, Route, Redirect } from "react-router-dom";
+import {connect} from "react-redux";
+import * as actions from "store/actions";
 // creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
@@ -11,6 +13,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import Header from "components/Header/Header.jsx";
 import Footer from "components/Footer/Footer.jsx";
 import Sidebar from "components/Sidebar/Sidebar.jsx";
+import LoginPage from "layouts/LoginPage/LoginPage.jsx"
 
 import dashboardRoutes from "routes/dashboard.jsx";
 
@@ -49,6 +52,9 @@ class App extends React.Component {
     }
   }
   componentDidMount() {
+
+      this.props.fetchUserAction();
+
     if (navigator.platform.indexOf("Win") > -1) {
       const ps = new PerfectScrollbar(this.refs.mainPanel);
     }
@@ -67,8 +73,7 @@ class App extends React.Component {
   }
   render() {
     const { classes, ...rest } = this.props;
-    return (
-      <div className={classes.wrapper} >
+    return (this.state.auth ? (<div className={classes.wrapper} >
         <Sidebar
           routes={dashboardRoutes}
           logoText={"Станкопарк"}
@@ -95,13 +100,17 @@ class App extends React.Component {
           )}
           {this.getRoute() ? <Footer /> : null}
         </div>
-      </div>
+      </div>) : ( <LoginPage/>)
     );
   }
+}
+
+function mapStateToProps({auth}){
+  return ({ auth});
 }
 
 App.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(dashboardStyle)(App);
+export default connect(mapStateToProps, actions)(withStyles(dashboardStyle)(App));
