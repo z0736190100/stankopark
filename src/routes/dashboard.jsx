@@ -12,8 +12,8 @@ import MachineUnitsTableList from "views/MachineUnitsTableList/MachineUnitsTable
 import Typography from "views/Typography/Typography.jsx";
 import Icons from "views/Icons/Icons.jsx";
 import NotificationsPage from "views/Notifications/Notifications.jsx";
-import ExperimentalClass from "../views/Experimental/ExperimentalClass";
-import LoginPage from "components/Experimental/trans/LoginPage/LoginPage.jsx";
+import ExperimentalClass from "views/Experimental/ExperimentalClass";
+import LoginPage from "components/layouts/LoginPage/LoginPage.jsx";
 
 const dashboardRoutes = [
   {
