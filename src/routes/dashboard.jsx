@@ -13,6 +13,7 @@ import Typography from "views/Typography/Typography.jsx";
 import Icons from "views/Icons/Icons.jsx";
 import NotificationsPage from "views/Notifications/Notifications.jsx";
 import ExperimentalClass from "../views/Experimental/ExperimentalClass";
+import LoginPage from "components/Experimental/trans/LoginPage/LoginPage.jsx";
 
 const dashboardRoutes = [
   {
@@ -42,6 +43,13 @@ const dashboardRoutes = [
     navbarName: "experimental",
     icon: "voice_over_off",
     component: ExperimentalClass
+  },
+  {
+    path: "/login",
+    sidebarName: "experimental",
+    navbarName: "experimental",
+    icon: "voice_over_off",
+    component: LoginPage
   },
   {
     path: "/typography",

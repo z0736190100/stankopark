@@ -64,7 +64,7 @@ function CustomInput({ ...props }) {
         }}
         id={id}
         {...inputProps}
-        endAdornment={<InputAdornment position="end">Bla</InputAdornment>}
+        endAdornment={inputProps.endAdornment}
       />
       <FormHelperText className={labelClasses}>{"helper"}</FormHelperText>
       {error ? (

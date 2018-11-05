@@ -3,15 +3,17 @@ import Experimental from "./Experimental";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions";
 
+
+//TODO uncontrolled CustomForm component + redux-form
 class ExperimentalClass extends Component {
 
   state = {
-    iii: "one"
+    mockSelectVal: "one"
   };
 
   selectOC = event => {
     this.setState({
-      iii: event.target.value
+      mockSelectVal: event.target.value
     });
   };
 
@@ -21,7 +23,7 @@ class ExperimentalClass extends Component {
         act={() => this.props.testReducerAction}
         test={this.props.test}
         selectOC={this.selectOC}
-        iii={this.state.iii}
+        iii={this.state.mockSelectVal}
       />
     );
   }

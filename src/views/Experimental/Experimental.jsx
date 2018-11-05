@@ -132,7 +132,7 @@ function Experimental(props) {
                     inputProps={{
                       name: "voltage",
                       id: "voltage",
-                      value: props.iii
+                      value: props.mockSelectVal
                     }}
                   />
                 </GridItem>
@@ -160,7 +160,7 @@ function Experimental(props) {
             </CardAvatar>
             <CardBody profile>
               <h6 className={classes.cardCategory}>{"ЖУРНАЛ"}</h6>
-              <h4 className={classes.cardTitle}>{props.iii}</h4>
+              <h4 className={classes.cardTitle}>{props.mockSelectVal}</h4>
               <p className={classes.description}>
                 {
                   "--выборка из общего журнала техобслуживания в табличном виде--"
