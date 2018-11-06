@@ -3,19 +3,19 @@
 // #############################
 
 var bugs = [
-  'Sign contract for "What are conference organizers afraid of?"',
-  "Lines From Great Russian Literature? Or E-mails From My Boss?",
-  "Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit",
-  "Create 4 Invisible User Experiences you Never Knew About"
+  "Чистка инжектора CERIM 148, регламентные работы",
+  "Замена сальника на сосальнике, ПКП-10",
+  "Перенос и подключение разглажки шва поближе к утюжке задинки, подальше от загвоздки обсоюзки",
+  "Ревизия электрообвязки на раскройном участке"
 ];
 var website = [
-  "Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit",
-  'Sign contract for "What are conference organizers afraid of?"'
+  "Установка гипсокартонных перегородок",
+  "Перегородка гипсокартонных установок"
 ];
 var server = [
-  "Lines From Great Russian Literature? Or E-mails From My Boss?",
-  "Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit",
-  'Sign contract for "What are conference organizers afraid of?"'
+  "Замена блока питания",
+  "Масштабирование персистентного леера, настройка кластеризации и рантайм-реплицирования.",
+  'Лорум ипсум'
 ];
 
 module.exports = {
