@@ -1,12 +1,10 @@
 import React, { Component } from "react";
-import Experimental from "./Experimental";
-import { connect } from "react-redux";
-import * as actions from "../../store/actions";
-
+import Experimental from "views/Experimental/Experimental.jsx";
+//import { connect } from "react-redux";
+//import * as actions from "store/actions";
 
 //TODO uncontrolled CustomForm component + redux-form
 class ExperimentalClass extends Component {
-
   state = {
     mockSelectVal: "one"
   };
@@ -19,21 +17,13 @@ class ExperimentalClass extends Component {
 
   render() {
     return (
-      <Experimental
-        act={() => this.props.testReducerAction}
-        test={this.props.test}
-        selectOC={this.selectOC}
-        iii={this.state.mockSelectVal}
-      />
+      <Experimental selectOC={this.selectOC} iii={this.state.mockSelectVal} />
     );
   }
 }
 
-function mapStateToProps({ test }) {
-  return { test };
-}
+// function mapStateToProps({ test }) {
+//   return { test };
+// }
 
-export default connect(
-  mapStateToProps,
-  actions
-)(ExperimentalClass);
+export default ExperimentalClass;

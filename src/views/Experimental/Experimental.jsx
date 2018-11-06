@@ -19,7 +19,6 @@ import formFields from "./machineUnitFormFields";
 import InputAdornment from "@material-ui/core/es/InputAdornment/InputAdornment";
 import CustomSelectInput from "components/Experimental/CustomSelectInput.jsx";
 //import CustomSelectInput from "@material-ui/core/es/CustomSelectInput/CustomSelectInput";
-import MenuItem from "@material-ui/core/es/MenuItem/MenuItem";
 
 const styles = {
   cardCategoryWhite: {
@@ -132,7 +131,7 @@ function Experimental(props) {
                     inputProps={{
                       name: "voltage",
                       id: "voltage",
-                      value: props.mockSelectVal
+                      value: props.iii
                     }}
                   />
                 </GridItem>
@@ -160,15 +159,13 @@ function Experimental(props) {
             </CardAvatar>
             <CardBody profile>
               <h6 className={classes.cardCategory}>{"ЖУРНАЛ"}</h6>
-              <h4 className={classes.cardTitle}>{props.mockSelectVal}</h4>
+              <h4 className={classes.cardTitle}>{props.iii}</h4>
               <p className={classes.description}>
                 {
                   "--выборка из общего журнала техобслуживания в табличном виде--"
                 }
               </p>
-              <Button color={"primary"} onClick={props.act()}>
-                {props.test || "TEST"}
-              </Button>
+              <Button color={"primary"}>{"TEST"}</Button>
             </CardBody>
           </Card>
         </GridItem>

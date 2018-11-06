@@ -11,8 +11,6 @@ import Clear from "@material-ui/icons/Clear";
 import Check from "@material-ui/icons/Check";
 // core components
 import customInputStyle from "assets/jss/material-dashboard-react/components/customInputStyle.jsx";
-import InputAdornment from "@material-ui/core/es/InputAdornment/InputAdornment";
-import TextField from "@material-ui/core/es/TextField/TextField";
 import FormHelperText from "@material-ui/core/es/FormHelperText/FormHelperText";
 
 
@@ -25,6 +23,7 @@ function CustomInput({ ...props }) {
     id,
     labelProps,
     inputProps,
+    endAdornment,
     error,
     success
   } = props;
@@ -64,7 +63,7 @@ function CustomInput({ ...props }) {
         }}
         id={id}
         {...inputProps}
-        endAdornment={inputProps.endAdornment}
+        endAdornment={endAdornment}
       />
       <FormHelperText className={labelClasses}>{"helper"}</FormHelperText>
       {error ? (
