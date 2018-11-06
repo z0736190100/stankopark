@@ -12,7 +12,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import Header from "components/Header/Header.jsx";
 import Footer from "components/Footer/Footer.jsx";
 import Sidebar from "components/Sidebar/Sidebar.jsx";
-import LoginPage from "layouts/LoginPage/LoginPage.jsx";
+import LoginPage from "components/LoginPage/LoginPage.jsx";
 
 import dashboardRoutes from "routes/dashboard.jsx";
 
