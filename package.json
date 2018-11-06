@@ -1,7 +1,7 @@
 {
-  "name": "material-dashboard-react",
-  "version": "1.5.0",
-  "description": "Material Dashboard React. Coded by Creative Tim",
+  "name": "stankopark",
+  "version": "1.0.0",
+  "description": "",
   "private": false,
   "main": "dist/index.js",
   "dependencies": {
@@ -40,18 +40,17 @@
     "lint:fix": "eslint . --ext=js,jsx --fix;  exit 0",
     "build-package": "babel src --out-dir dist"
   },
-  "proxy": "http://localhost:5000",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/creativetimofficial/material-dashboard-react.git"
+    "url": "git+https://github.com/z0736190100/stankopark"
   },
   "keywords": [],
-  "author": "Creative Tim <hello@creative-tim.com> (https://www.creative-tim.com/)",
+  "author": "Good Habit Studio by inspiration of kits made by Creative Tim ",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/creativetimofficial/material-dashboard-react/issues"
+    "url": ""
   },
-  "homepage": "https://creativetimofficial.github.io/material-dashboard-react/#/dashboard",
+  "homepage": "",
   "optionalDependencies": {
     "babel-eslint": "7.2.3",
     "eslint": "4.19.1",

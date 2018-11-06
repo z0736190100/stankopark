@@ -12,11 +12,19 @@ module.exports = app => {
     "/auth/google/callback",
     passport.authenticate("google"),
     (req, res) => {
-      res.redirect("/dashboard");
+      console.log(
+        "\n < authRoutes.js:15 > IN get('/auth/google/callback') --> response = \n"
+      );
+      console.log(res);
+      res.redirect("http://localhost:3000/dashboard");
     }
   );
 
   app.get("/api/logout", (req, res) => {
+    console.log(
+      "\n < authRoutes.js:24 > IN get('/api/logout') --> logging out request.user = \n"
+    );
+    console.log(req.user);
     req.logout();
     //res.send(req.user);
     res.redirect("/");
@@ -24,6 +32,10 @@ module.exports = app => {
 
   app.get("/api/current_user", (req, res) => {
     // res.send(req.session);
+    console.log(
+      "\n < authRoutes.js:31 > IN get('/api/current_user') --> response.data = \n"
+    );
+    console.log(req.user);
     res.send(req.user);
   });
 };

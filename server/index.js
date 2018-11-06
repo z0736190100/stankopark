@@ -46,5 +46,5 @@ if (process.env.NODE_ENV === "production") {
 
 // enviroment of deploy server || dev server
 const PORT = process.env.PORT || 5000;
-console.log("server runs on:  ", PORT);
 app.listen(PORT);
+console.log("\n < server/index.js:48 > SERVER LISTENING ON PORT: ", PORT);

@@ -1,8 +1,7 @@
-/* eslint-disable */
 import React from "react";
 import PropTypes from "prop-types";
 import { Switch, Route, Redirect } from "react-router-dom";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import * as actions from "store/actions";
 // creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
@@ -13,7 +12,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import Header from "components/Header/Header.jsx";
 import Footer from "components/Footer/Footer.jsx";
 import Sidebar from "components/Sidebar/Sidebar.jsx";
-import LoginPage from "layouts/LoginPage/LoginPage.jsx"
+import LoginPage from "layouts/LoginPage/LoginPage.jsx";
 
 import dashboardRoutes from "routes/dashboard.jsx";
 
@@ -33,31 +32,41 @@ const switchRoutes = (
 );
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      mobileOpen: false
-    };
-    this.resizeFunction = this.resizeFunction.bind(this);
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     mobileOpen: false
+  //   };
+  //   this.resizeFunction = this.resizeFunction.bind(this);
+  // }
+
+  state = {
+    permitted: false,
+    mobileOpen: false
+  };
+
   handleDrawerToggle = () => {
     this.setState({ mobileOpen: !this.state.mobileOpen });
   };
-  getRoute() {
+  getRoute = () => {
     return this.props.location.pathname !== "/maps";
-  }
-  resizeFunction() {
+  };
+  resizeFunction = () => {
     if (window.innerWidth >= 960) {
       this.setState({ mobileOpen: false });
     }
-  }
+  };
   componentDidMount() {
 
-      this.props.fetchUserAction();
+    // this.props.fetchUserAction();
+    // //LOGGER
+    // console.log("\n < layouts/DASHBOARD:59 > this.props.auth = \n");
+    // console.log(this.props.auth);
+    // //END LOGGER
 
-    if (navigator.platform.indexOf("Win") > -1) {
-      const ps = new PerfectScrollbar(this.refs.mainPanel);
-    }
+    // if (navigator.platform.indexOf("Win") > -1) {
+    //   const ps = new PerfectScrollbar(this.refs.mainPanel);
+    // }
     window.addEventListener("resize", this.resizeFunction);
   }
   componentDidUpdate(e) {
@@ -71,9 +80,13 @@ class App extends React.Component {
   componentWillUnmount() {
     window.removeEventListener("resize", this.resizeFunction);
   }
+  switchPermitted = () => {
+    this.setState({ permitted: !this.state.permitted });
+  };
   render() {
     const { classes, ...rest } = this.props;
-    return (this.state.auth ? (<div className={classes.wrapper} >
+    return this.state.permitted ? (
+      <div className={classes.wrapper}>
         <Sidebar
           routes={dashboardRoutes}
           logoText={"Станкопарк"}
@@ -86,6 +99,7 @@ class App extends React.Component {
         />
         <div className={classes.mainPanel} ref="mainPanel">
           <Header
+            switchPermitted={this.switchPermitted}
             routes={dashboardRoutes}
             handleDrawerToggle={this.handleDrawerToggle}
             {...rest}
@@ -100,17 +114,22 @@ class App extends React.Component {
           )}
           {this.getRoute() ? <Footer /> : null}
         </div>
-      </div>) : ( <LoginPage/>)
+      </div>
+    ) : (
+      <LoginPage switchPermitted={this.switchPermitted} />
     );
   }
 }
 
-function mapStateToProps({auth}){
-  return ({ auth});
+function mapStateToProps({ auth }) {
+  return ({ auth });
 }
 
 App.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default connect(mapStateToProps, actions)(withStyles(dashboardStyle)(App));
+export default connect(
+  mapStateToProps,
+  actions
+)(withStyles(dashboardStyle)(App));

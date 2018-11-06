@@ -40,7 +40,7 @@ function Header({ ...props }) {
           </Button>
         </div>
         <Hidden smDown implementation="css">
-          <HeaderLinks />
+          <HeaderLinks switchPermitted={props.switchPermitted} />
         </Hidden>
         <Hidden mdUp implementation="css">
           <IconButton
