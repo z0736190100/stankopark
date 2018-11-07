@@ -33,7 +33,7 @@ function CustomSelectInput({ ...props }) {
     menuValues,
     helperText
   } = props;
-
+//FIXME: spaces:-] 
   const labelClasses = classNames({
     [" " + classes.labelRootError]: error,
     [" " + classes.labelRootSuccess]: success && !error
@@ -47,7 +47,7 @@ function CustomSelectInput({ ...props }) {
     [classes.marginTop]: labelText === undefined
   });
 
-  //FIXME:
+  //FIXME:element must be item
   const menuItemRenderHelper = () => {
     return menuValues ? (
       menuValues.map(element => (
@@ -92,6 +92,8 @@ function CustomSelectInput({ ...props }) {
               underline: underlineClasses
             }}
             {...inputProps}
+            // FIXME: not always start, must be props-dependent 
+            // do positionAdornmentResolver() ? 
             startAdornment={
               <InputAdornment position="start">{startAdornment}</InputAdornment>
             }
