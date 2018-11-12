@@ -18,6 +18,7 @@ module.exports = app => {
     res.send(machineUnits);
   });
 
+//FIXME: requireLogin!!!
   app.post("/api/machine_units", async (req, res) => {
 
     const {

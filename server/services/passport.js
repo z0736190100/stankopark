@@ -25,6 +25,8 @@ passport.deserializeUser((id, done) => {
 });
 // cookie stuff END
 
+// TODO: salting goggleId
+
 passport.use(
   new GoogleStrategy(
     {

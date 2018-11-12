@@ -16,7 +16,7 @@ module.exports = app => {
         "\n < authRoutes.js:15 > IN get('/auth/google/callback') --> response = \n"
       );
       console.log(res);
-      res.redirect("http://localhost:3000/dashboard");
+      res.redirect("/dashboard");
     }
   );
 
