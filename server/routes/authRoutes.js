@@ -38,4 +38,14 @@ module.exports = app => {
     console.log(req.user);
     res.send(req.user);
   });
+
+  app.post("/api/signin", (req, res) => {
+    //LOGGING
+    console.log(
+      "\n < authRoutes.js:45 > IN get('/api/signin') --> POST recieved, request=\n"
+    );
+    console.log(req);
+    //END LOGGING
+    res.send("POST SUCCESS");
+  });
 };
