@@ -13,7 +13,7 @@ module.exports = app => {
     passport.authenticate("google"),
     (req, res) => {
       console.log(
-        "\n < authRoutes.js:15 > IN get('/auth/google/callback') --> response = \n"
+        "\n < oauth.js:15 > IN get('/auth/google/callback') --> response = \n"
       );
       console.log(res);
       res.redirect("/dashboard");
@@ -22,7 +22,7 @@ module.exports = app => {
 
   app.get("/api/logout", (req, res) => {
     console.log(
-      "\n < authRoutes.js:24 > IN get('/api/logout') --> logging out request.user = \n"
+      "\n < oauth.js:24 > IN get('/api/logout') --> logging out request.user = \n"
     );
     console.log(req.user);
     req.logout();
@@ -33,7 +33,7 @@ module.exports = app => {
   app.get("/api/current_user", (req, res) => {
     // res.send(req.session);
     console.log(
-      "\n < authRoutes.js:31 > IN get('/api/current_user') --> response.data = \n"
+      "\n < oauth.js:31 > IN get('/api/current_user') --> response.data = \n"
     );
     console.log(req.user);
     res.send(req.user);
@@ -42,7 +42,7 @@ module.exports = app => {
   app.post("/api/signin", (req, res) => {
     //LOGGING
     console.log(
-      "\n < authRoutes.js:45 > IN get('/api/signin') --> POST recieved, request=\n"
+      "\n < oauth.js:45 > IN get('/api/signin') --> POST recieved, request=\n"
     );
     console.log(req);
     //END LOGGING

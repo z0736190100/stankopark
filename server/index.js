@@ -5,14 +5,14 @@ const passport = require("passport");
 const bodyParser = require("body-parser");
 const keys = require("./config/keys");
 const morgan = require("morgan");
-require("./models/UserModel");
+require("./models/User");
 require("./models/MachineUnitModel");
-require("./services/passport");
+require("./services/passport-oauth2");
 
 mongoose.connect(
   keys.mongoURI,
   { useNewUrlParser: true }
-); // second attr is antideprecation recommendation of Mongoose
+);
 
 const app = express();
 
@@ -28,8 +28,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-require("./routes/authRoutes")(app);
-require("./routes/machineUnitRoutes")(app);
+require("./controllers/oauth")(app);
+require("./controllers/machineUnits")(app);
 
 // deployment settings
 if (process.env.NODE_ENV === "production") {
