@@ -8,6 +8,7 @@ const morgan = require("morgan");
 require("./models/User");
 require("./models/MachineUnitModel");
 require("./services/passport-oauth2");
+require("./services/passport-jwt");
 
 mongoose.connect(
   keys.mongoURI,
@@ -17,7 +18,10 @@ mongoose.connect(
 const app = express();
 
 // lib to parse the POST req body
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+
+//
 app.use(morgan("combined"));
 app.use(
   cookieSession({
@@ -28,8 +32,11 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+require("./controllers/users")(app);
 require("./controllers/oauth")(app);
 require("./controllers/machineUnits")(app);
+require("./controllers/auth")(app);
+
 
 // deployment settings
 if (process.env.NODE_ENV === "production") {
