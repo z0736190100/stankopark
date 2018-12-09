@@ -35,8 +35,7 @@ const postHelpers = {
                 (err, token) => {
                   res.json(
                     {
-                      msg: "Log in is SUCCESSFULL.",
-                      success: true,
+                      ...payload,
                       token: "Bearer " + token
                     }
                   );

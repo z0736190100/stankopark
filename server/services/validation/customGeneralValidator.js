@@ -9,7 +9,8 @@ module.exports = function validateRegistrationData(data) {
         length: Validator.isLength,
         empty: isEmpty,
         confirmation: Validator.equals,
-        email: Validator.isEmail
+        email: Validator.isEmail,
+      integer: Validator.isInt,
     };
 // errors of validation
     let errors = [];

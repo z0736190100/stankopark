@@ -36,17 +36,20 @@ const machineUnitSchema = new Schema(
     power: {
       type: String
     },
-      hPressure:{
-        type: Number,
-      },
-      hVolume: {
-        type: Number
+    hPressure: {
+      type: Number
     },
-      airPressure: {
-        type: Number
-      },
-      airConsumptionPerCycle: {
-        type: Number
+    hVolume: {
+      type: Number
+    },
+    oilType: {
+      type: String
+    },
+    airPressure: {
+      type: Number
+    },
+    airConsumptionPerCycle: {
+      type: Number
     },
     description: {
       type: String,

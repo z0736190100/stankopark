@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const requireLogin = require("../middlewares/requireLogin");
+const inventory = require("../services/inventory_number_generator");
 
 const machineUnits = mongoose.model("machineUnits");
 
@@ -19,10 +20,10 @@ module.exports = app => {
   });
 
 //FIXME: requireLogin!!!
+  // TODO: requireAuth
   app.post("/api/machine_units", async (req, res) => {
 
     const {
-      inventoryNumber,
       usage,
       producerBrand,
       model,
@@ -32,13 +33,14 @@ module.exports = app => {
       description,
       hPressure,
       hVolume,
+      oilType,
       airPressure,
       airConsumptionPerCycle,
     } = req.body;
  console.log(req.body);
  //   _user: req.body.id,
     const newUnit = new machineUnits({
-      inventoryNumber: 10,
+      inventoryNumber: inventory(),
       usage,
       producerBrand,
       model,
