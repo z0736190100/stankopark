@@ -6,15 +6,20 @@ const UserSchema = new Schema({
   googleId: String,
   firstName: {
     type: String,
-    required: true
+    minLength: [2, "First Name must be at least 2 characters long"],
+    maxLength: [22, "Must be not longer then 22 characters"],
+    required: [true, "Field cannot be empty."]
+
   },
   lastName: {
     type: String,
-    required: true
+    minLength: [2, "Last Name must be at least 2 characters long."],
+    maxLength: [22, "Must be not longer then 22 characters."],
+    required: [true, "Field cannot be empty."]
   },
   email: {
     type: String,
-    required: true
+    required: [true, "Field cannot be empty."]
   },
   password: {
     type: String,

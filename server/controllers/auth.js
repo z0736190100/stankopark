@@ -42,7 +42,7 @@ const postHelpers = {
                 });
 
             } else {
-              return res.status(400).json({password: "Password is incorrect."});
+              return res.status(404).json({password: "Password is incorrect."});
             }
           });
       })
