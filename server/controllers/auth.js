@@ -9,17 +9,23 @@ const keys = require("../config/keys");
 const postHelpers = {
   loginUser: (req, res) => {
     //check if user exists
-    User.findOne({email: req.body.email})
+    User.findOne({ email: req.body.email })
       .then(user => {
         if (!user) {
-          return res.status(404).json({email: "User not found."});
+          return res.status(404).json({
+            error:
+              {
+                name: "LoginError",
+                message: "User not found. Try other credentials."
+              }
+          });
         }
         // unsalting and check if password is matching
         bcrypt.compare(req.body.password, user.password)
           .then(isMatch => {
             if (isMatch) {
               // user matches
-              const {id, firstName, lastName, avatar, date} = user;
+              const { id, firstName, lastName, avatar, date } = user;
               const payload = {
                 id,
                 firstName,
@@ -31,21 +37,27 @@ const postHelpers = {
               jwt.sign(
                 payload,
                 keys.secretOrKey,
-                {expiresIn: 3600},
+                { expiresIn: 3600 },
                 (err, token) => {
                   res.json(
                     {
                       ...payload,
-                      token: "Bearer " + token
+                      token
                     }
                   );
                 });
 
             } else {
-              return res.status(404).json({password: "Password is incorrect."});
+              return res.status(404).json({
+                error:
+                  {
+                    name: "LoginError",
+                    message: "User not found. Try other credentials."
+                  }
+              });
             }
           });
-      })
+      });
   }
 };
 
