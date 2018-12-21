@@ -11,9 +11,6 @@ module.exports = app => {
     const machineUnits = await machineUnits
       .find({
         _user: req.user.id
-      })
-      .select({
-        recipients: false
       });
 
     res.send(machineUnits);

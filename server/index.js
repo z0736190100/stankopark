@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const keys = require("./config/keys");
 const morgan = require("morgan");
 require("./models/User");
-require("./models/MachineUnitModel");
+require("./models/MachineUnit");
 require("./services/passport-oauth2");
 require("./services/passport-jwt");
 

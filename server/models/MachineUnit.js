@@ -51,6 +51,21 @@ const machineUnitSchema = new Schema(
     airConsumptionPerCycle: {
       type: Number
     },
+    thermo_type: {
+      type: String
+    },
+    thermo_unit_param: {
+      type: String
+    },
+    thermo_unit_voltage: {
+      type: Number
+    },
+    thermo_unit_power: {
+      type: Number
+    },
+    thermo_unit_number: {
+      type: Number
+    },
     description: {
       type: String,
       required: true
