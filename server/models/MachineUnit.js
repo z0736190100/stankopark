@@ -6,7 +6,7 @@ const { Schema } = mongoose;
 const machineUnitSchema = new Schema(
   {
     inventoryNumber: {
-      type: Number,
+      type: String,
       // KUNG-FUSION: can we do custom implementation for value generator in mongoose
       required: true
     },

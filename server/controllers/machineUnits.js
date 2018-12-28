@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const requireLogin = require("../middlewares/requireLogin");
 const inventory = require("../services/inventory_number_generator");
+const passport = require("passport");
 
 const machineUnits = mongoose.model("machineUnits");
 
@@ -18,7 +19,7 @@ module.exports = app => {
 
 //FIXME: requireLogin!!!
   // TODO: requireAuth
-  app.post("/api/machine_units", async (req, res) => {
+  app.post("/api/machine_units", passport.authenticate("jwt", { session: false }), (req, res) => {
 
     const {
       usage,
@@ -54,7 +55,7 @@ module.exports = app => {
     });
     console.log(newUnit.usage);
     try {
-      await newUnit.save();
+     newUnit.save();
       //const user = await req.user.save();
       //res.send(user);
       res.status(200).json({success: true});
